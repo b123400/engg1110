@@ -224,6 +224,7 @@ public class BaselineController implements Controller {
     }
     
     public boolean isOtherTargetTheSameThingAs(ControlledElevator elevator, int target, Direction direction){
+        return false;
         for(int i=0;i<E.length;i++){
             if(E[i]==elevator)continue;
             if(E[i].getTarget()==target && E[i].getDirection()==direction)return true;
