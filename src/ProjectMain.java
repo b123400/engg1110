@@ -5,10 +5,10 @@ public class ProjectMain {
 
     public static void main(String args[]) {
         // Run a single simulation with GUI. See the code in normal() for more info.
-        //normal();
+        normal();
         
         // Uncomment the following state when you want to check the  performance of your algorithm
-         evaluatePerformance();       
+        // evaluatePerformance();       
     }
     
     // The code here illustrate how to use run a simulation with a GUI.
@@ -57,8 +57,8 @@ public class ProjectMain {
 
         // Set the elevators you want to use here 
         elevators[0] = createElevator(0);
-        elevators[1] = createElevator(1);
-        elevators[2] = createElevator(2);
+        elevators[1] = createElevator(0);
+        elevators[2] = createElevator(0);
       
         int duration = 6000;    // Simulation length in clock tick
         int seed = 1;           // Random # seed 
@@ -90,7 +90,7 @@ public class ProjectMain {
             // statistical data about the simulation
             // Note: Simulator.run will only returns a stat object if the simulation
             // is running without a GUI.s
-            Statistics stat = Simulator.run(stage, building, elevators, controller, false);
+            Statistics stat = Simulator.run(stage, building, elevators, controller, true);
 
             // Record the two pieces of info we need
             average[i] = stat.getAverageTotalTime();
