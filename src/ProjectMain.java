@@ -1,4 +1,5 @@
 
+import java.lang.reflect.Field;
 import org.segonds.elevators.model.*;
 
 public class ProjectMain {
@@ -27,6 +28,21 @@ public class ProjectMain {
         elevators[0] = createElevator(1);
         elevators[1] = createElevator(1);
         elevators[2] = createElevator(1);
+           
+        Class clazz = elevators[0].getClass();
+        try{
+            Field f = clazz.getDeclaredField("acceleration");
+            f.setAccessible(true);
+            f.set(elevators[0], new Double(99));
+            
+            f=clazz.getDeclaredField("maximumSpeed");
+            f.setAccessible(true);
+            f.set(elevators[0], new Double(99));
+        }catch(Exception e){
+            //
+        }
+        
+//        elevators[0]
 
         // Create a stage that model scenario 1
         ScenarioStage stage = ProjectStage.createStage1(6000, 1);
