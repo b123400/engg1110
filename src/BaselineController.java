@@ -56,23 +56,23 @@ public class BaselineController implements Controller {
             if (E[i].getDirection() == UP && E[i].getSpeed() > 0) {
                 //System.out.println("Case1; Lift: "+i);
                 handleCase1(i);
+                //System.out.println("1this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
             } else if (E[i].getDirection() == UP && E[i].getSpeed() == 0) {
-                System.out.println("1this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
                 //System.out.println("Case2; Lift: "+i);
                 handleCase2(i);
-                System.out.println("2this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
+                //System.out.println("2this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
             } else if (E[i].getDirection() == DOWN && E[i].getSpeed() < 0) {
                 //System.out.println("Case3; Lift: "+i);
                 handleCase3(i);
-                System.out.println("3this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
+                //System.out.println("3this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
             } else if (E[i].getDirection() == DOWN && E[i].getSpeed() == 0) {
                 //System.out.println("Case4; Lift: "+i);
                 handleCase4(i);
-                System.out.println("4this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
+                //System.out.println("4this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
             } else if (E[i].getDirection() == UNCOMMITTED) {
                 //System.out.println("Case5; Lift: "+i);
                 handleCase5(i);
-                System.out.println("5this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
+                //System.out.println("5this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
             }
 //            }  // delete
         }
