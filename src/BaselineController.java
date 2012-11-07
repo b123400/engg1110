@@ -131,7 +131,7 @@ public class BaselineController implements Controller {
         
         //set the nearest one
         int target = -1;
-        for (int f = E[i].getFloor()-1; f >= 0; f = f - 1) {
+        for (int f = E[i].getFloor(); f >= 0; f = f - 1) {
             if (E[i].isFloorRequested(f) || (building.isFloorRequested(f, DOWN)  &&!isOtherTargetTheSameThingAs(E[i],f,DOWN))) {
                 target = f;
                 break;
@@ -178,7 +178,7 @@ public class BaselineController implements Controller {
         int upTarget = -1;
         int downTarget = -1;
         for (int f = 0; f < building.getNbFloors(); f++) {
-            if (building.isFloorRequested(f, UP)&&!isOtherTargetTheSameThingAs(E[i],f,UP)) {
+            if ((building.isFloorRequested(f, UP)&&!isOtherTargetTheSameThingAs(E[i],f,UP))||E[i].isFloorRequested(f)) {
                 upTarget = f;
                 break;
             }
