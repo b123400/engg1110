@@ -24,9 +24,9 @@ public class ProjectMain {
         Elevator elevators[] = new Elevator[3];
 
         // Using model-0, model-1, and model-2 elevators 
-        elevators[0] = createElevator(0);
+        elevators[0] = createElevator(1);
         elevators[1] = createElevator(1);
-        elevators[2] = createElevator(2);
+        elevators[2] = createElevator(1);
 
         // Create a stage that model scenario 1
         ScenarioStage stage = ProjectStage.createStage1(6000, 1);
