@@ -200,6 +200,7 @@ public class BaselineController implements Controller {
                 }
             }
         }
+        
         if (i == 0) {
             if (upTarget != -1) {
                 E[i].setDirection(UP);
@@ -210,11 +211,21 @@ public class BaselineController implements Controller {
             } else {
                 E[i].setDirection(UNCOMMITTED);
             }
-        } else {
+        } else if(i==1) {
             if (downTarget != -1) {
                 E[i].setDirection(DOWN);
                 E[i].setTarget(downTarget);
             } else if (upTarget != -1) {
+                E[i].setDirection(UP);
+                E[i].setTarget(upTarget);
+            } else {
+                E[i].setDirection(UNCOMMITTED);
+            }
+        }else{
+            if (downTarget!=-1&&Math.abs(E[i].getFloor()-downTarget)<Math.abs(E[i].getFloor()-upTarget)) {
+                E[i].setDirection(DOWN);
+                E[i].setTarget(downTarget);
+            } else if (upTarget!=-1&&Math.abs(E[i].getFloor()-downTarget)>Math.abs(E[i].getFloor()-upTarget)) {
                 E[i].setDirection(UP);
                 E[i].setTarget(upTarget);
             } else {
@@ -228,7 +239,7 @@ public class BaselineController implements Controller {
         for(int i=0;i<E.length;i++){
             if(E[i]==elevator)continue;
             if(E[i].getTarget()==target && E[i].getDirection()==direction)return true;
-            //if(E[i].isFloorRequested(target)&&E[i].getDirection()==direction)return true;
+            if(E[i].isFloorRequested(target)&&E[i].getDirection()==direction)return true;
         }
         return false;
     }
