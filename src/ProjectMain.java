@@ -54,13 +54,14 @@ public class ProjectMain {
 
         // Create a controller (RefBaselineController is a reference implementation
         // of the Baseline controller)
-        RefBaselineController controller = new RefBaselineController();
+        BaselineController controller = new BaselineController();
 
         // We are going to use three elevators 
         Elevator elevators[] = new Elevator[3];
         int a,j,k;
-        a=j=1;
-        k=3;
+        a=3;
+        j=1;
+        k=5;
         System.out.printf("combination: %d %d %d\n",a,j,k);
         elevators[0] = createElevator(a);
         elevators[1] = createElevator(j);
@@ -142,7 +143,7 @@ public class ProjectMain {
 
         // Create a controller (RefBaselineController is a reference implementation
         // of the Baseline controller)
-        RefBaselineController controller = new RefBaselineController();
+        BaselineController controller = new BaselineController();
 
         // We are going to use three elevators 
         Elevator elevators[] = new Elevator[3];
