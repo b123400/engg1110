@@ -26,9 +26,9 @@ public class ProjectMain {
         Elevator elevators[] = new Elevator[3];
 
         // Using model-0, model-1, and model-2 elevators 
-        elevators[0] = createElevator(1);
+        elevators[0] = createElevator(3);
         elevators[1] = createElevator(1);
-        elevators[2] = createElevator(1);
+        elevators[2] = createElevator(5);
 
         // Create a stage that model scenario 1
         ScenarioStage stage = ProjectStage.createStage1(6000, 1);
@@ -66,7 +66,7 @@ public class ProjectMain {
         elevators[0] = createElevator(a);
         elevators[1] = createElevator(j);
         elevators[2] = createElevator(k);
-        int duration = 6000;    // Simulation length in clock tick
+        int duration = 36000;    // Simulation length in clock tick
         
         double totalScore=0;
         for(int seed=1;seed<=5;seed++){

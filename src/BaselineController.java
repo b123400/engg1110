@@ -19,6 +19,8 @@ public class BaselineController implements Controller {
     final Direction UP = Direction.UP;
     final Direction DOWN = Direction.DOWN;
     final Direction UNCOMMITTED = Direction.UNCOMMITTED;
+    RuleChecker checker;
+    int tickNum=0;
 
     public void setup(ControlledBuilding b) {
         // Save a reference to the building object for later use
@@ -30,10 +32,15 @@ public class BaselineController implements Controller {
         // Save these constants for easier access later
         nbFloors = building.getNbFloors();
         topFloor = nbFloors - 1;
+        
+        checker = new RuleChecker(E, building);
+        if(checker.setupChecking() == false)
+            System.exit(0); // this means program termination.
     }
 
     // Nothing to reset
     public void reset() {
+        tickNum=0;
     }
 
     public String getName() {
@@ -75,6 +82,10 @@ public class BaselineController implements Controller {
                 //System.out.println("5this is "+i+" now "+E[i].getFloor()+" target "+E[i].getTarget());
             }
 //            }  // delete
+            if(checker.tickChecking(i, tickNum, E[i].getDirection()) == false)
+                System.exit(0);
+            else
+                tickNum = tickNum + 1;
         }
     }
 
@@ -235,7 +246,7 @@ public class BaselineController implements Controller {
     }
     
     public boolean isOtherTargetTheSameThingAs(ControlledElevator elevator, int target, Direction direction){
-        return false;
+        //return false;
         for(int i=0;i<E.length;i++){
             if(E[i]==elevator)continue;
             if(E[i].getTarget()==target && E[i].getDirection()==direction)return true;
